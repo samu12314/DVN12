@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Día de la Novia</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFlfytomjmIzbwScJGoX-0gX-oVZhCutqePFtumNsIPTkWddJ8f3r_o-HZXUp9evhWumg&usqp=CAU.png') center/cover no-repeat fixed;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .card {
+      background: rgba(255,255,255,0.9);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255,105,180,0.5);
+      z-index: 2;
+      max-width: 90%;
+    }
+    h1 {
+      color: #e91e63;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #444;
+      font-size: 18px;
+      margin: 8px 0;
+    }
+    button {
+      background: #ff4081;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      margin-top: 15px;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .corazon, .rosa {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      opacity: 0.9;
+      z-index: 1;
+      top: 0;
+    }
+    .corazon {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+      animation: flotar 12s linear infinite;
+    }
+    .rosa {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+      animation: caer 15s linear infinite;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-50vh) rotate(360deg); opacity: 0; }
+    }
+    @keyframes caer {
+      0% { transform: translateY(-50vh) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    #mensajeFinal {
+      color: #e91e63;
+      margin-top: 12px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Feliz día de la novia, Ignacia 💖</h1>
+    <p>Gracias por estar en mi vida. Eres mi todo.</p>
+    <button onclick="mostrarMensaje()">Haz clic aquí 💌</button>
+    <p id="mensajeFinal"></p>
+  </div>
+
+  <script>
+    function crear(tipo) {
+      const el = document.createElement('div');
+      el.className = tipo;
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = (8 + Math.random() * 7) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 20000);
+    }
+
+    setInterval(() => crear('corazon'), 800);
+    setInterval(() => crear('rosa'), 1200);
+
+    function mostrarMensaje() {
+      document.getElementById('mensajeFinal').innerText =
+        "Feliz día de la novia mi amor, te amo mucho mi princesa hermosa ❤️";
+    }
+  </script>
+</body>
+</html>
