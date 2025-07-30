@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF‑8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Feliz día de la novia 🎈</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: url('https://source.unsplash.com/P9oOLKNhIYU/1600x900') center/cover no-repeat fixed;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.85);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(233,30,99,0.5);
+      z-index: 2;
+      max-width: 90%;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    button {
+      background: #ff4081;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      margin-top: 15px;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .corazon, .rosa {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      opacity: 0.9;
+      z-index: 1;
+      top: 0;
+    }
+
+    .corazon {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+      animation: flotar 12s linear infinite;
+    }
+
+    .rosa {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/766/766284.png');
+      animation: caer 15s linear infinite;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-50vh) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes caer {
+      0% { transform: translateY(-50vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    #mensajeFinal {
+      color: #e91e63;
+      margin-top: 12px;
+      font-size: 18px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Feliz día de la novia, Ignacia 💖</h1>
+    <p>Gracias por estar en mi vida. Eres mi todo.</p>
+    <button onclick="activarAudio()">Haz clic aquí 💌</button>
+    <p id="mensajeFinal"></p>
+  </div>
+
+  <script>
+    function activarAudio() {
+      document.getElementById('mensajeFinal').innerText =
+        "Feliz día de la novia mi amor, te amo mucho mi princesa hermosa ❤️";
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://www.youtube.com/embed/N-6ZE_1avDo?autoplay=1&loop=1&playlist=N-6ZE_1avDo';
+      iframe.allow = 'autoplay';
+      document.body.appendChild(iframe);
+    }
+
+    function crear(tipo) {
+      const el = document.createElement('div');
+      el.className = tipo;
+      el.style.left = Math.random()*100+'vw';
+      el.style.animationDuration = (8+Math.random()*7)+'s';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 20000);
+    }
+
+    setInterval(() => crear('corazon'), 800);
+    setInterval(() => crear('rosa'), 1200);
+  </script>
+</body>
+</html>
