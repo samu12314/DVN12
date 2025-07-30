@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hola Bro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+    }
+
+    h1 {
+      color: #ff4081;
+      font-size: 2em;
+    }
+
+    p {
+      color: #ccc;
+      font-size: 18px;
+    }
+
+    button {
+      background: #ff4081;
+      color: white;
+      padding: 10px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      margin-top: 15px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hola Bro te quiero</h1>
+    <button onclick="activarBromita()">Dale click acá gey</button>
+    <p id="respuesta"></p>
+  </div>
+
+  <script>
+    function activarBromita() {
+      document.getElementById("respuesta").innerText = "Ah qué gey le diste click";
+
+      const iframe = document.createElement("iframe");
+      iframe.width = "0";
+      iframe.height = "0";
+      iframe.src = "https://www.youtube.com/embed/8tMzr90rlvg?autoplay=1&loop=1&playlist=8tMzr90rlvg";
+      iframe.allow = "autoplay";
+      iframe.frameBorder = "0";
+      document.body.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>
